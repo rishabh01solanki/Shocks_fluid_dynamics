@@ -8,7 +8,7 @@ gamma = 1.4  # ratio of specific heats
 # Initial conditions
 rho_left = 1.0  # density on the left side
 rho_right = 0.125  # density on the right side
-p_left = 1.0  # pressure on the left side
+p_left = 1  # pressure on the left side
 p_right = 0.1  # pressure on the right side
 v_left = 0.0  # velocity on the left side
 v_right = 0.0  # velocity on the right side
@@ -35,11 +35,12 @@ v[int(nx/2):] = v_right  # velocity on the right side
 
 # Set up the figure and axis
 fig, ax = plt.subplots()
-line1, = ax.plot(x, rho, label="Density")
+line1, = ax.plot(x, rho, label="Density")  # fix typo here
 line2, = ax.plot(x, p, label="Pressure")
 line3, = ax.plot(x, v, label="Velocity")
 ax.legend()
 
+# using Reimann solve
 def animate(i):
     # Calculate the intermediate states
     for j in range(i):
